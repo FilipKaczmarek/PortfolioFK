@@ -21,7 +21,7 @@ p {
     max-width: 1400px;
 }
 
-.h1-yellow, .skill-heading, .projects-heading {
+.h1-yellow, .skill-heading, .projects-heading, .contatct-title {
     color: #FFFF4D;
     font-size: 2.2rem;
 }
@@ -29,11 +29,20 @@ p {
 /* NAVIGATION */
 
 .navbar-view {
+    width: 1400px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin: 0.5rem 1rem;
+    background-color: #171717;
+    position: fixed;
+    z-index: 10;
+}
+
+.navbar-scroll {
+    -webkit-box-shadow: 0px 15px 5px -0.5px rgba(23, 23, 23, 0.7);
+    -moz-box-shadow: 0px 15px 5px -0.5px rgba(23, 23, 23, 0.7);
+    box-shadow: 0px 15px 5px -0.5px rgba(23, 23, 23, 0.7);
 }
 
 .navbar-list {
@@ -82,9 +91,6 @@ p {
 .greeting {
     width: 100%;
     height: 100%;
-    /* display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(3, 1fr); */
     display: flex;
 }
 
@@ -93,8 +99,6 @@ p {
     font-weight: 700;
     font-size: 4.5rem;
     padding-top: 19%;
-    /* grid-column: 3 / 12;
-    grid-row: 2 / 3; */
 }
 
 .greeting-text {
@@ -126,8 +130,6 @@ p {
 }
 
 /* About Me - Section */
-
-.js-navbar {}
 
 #about-me {
     width: 100%;
@@ -252,11 +254,6 @@ p {
     margin-bottom: 2rem;
 }
 
-.nav-projects {
-    margin-top: 4.5rem;
-    margin-bottom: 2rem;
-}
-
 .project-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -271,14 +268,19 @@ p {
     height: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
-.hidden-box {
-    background-color: gray;
+.project-hidden__info {
     display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 130;
+    background-color: red;
 }
 
-.project1, .project2, .project3, .hidden-box {
+.project1, .project2, .project3 {
     grid-row: 1 / 2;
 }
 
@@ -349,79 +351,431 @@ p {
 
 /* -- CONTACT ME SECTION -- */
 
-#contact{
+#contact {
     width: 100%;
     height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 25% 75%;
+    grid-template-areas: "textgrid textgrid" "contactme contactinfo";
 }
 
 .contact-text {
+    grid-area: textgrid;
+}
+
+.contactMe {
+    grid-area: contactme;
+}
+
+.contact-info {
+    grid-area: contactinfo;
+}
+
+.contact-text p {
     padding-top: 4rem;
 }
 
-.contact-flexbox{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.contactMe,
-.contact-info {
-    width: 50%;
-    height: auto;
-}
-
 #contact-form {
+    width: 100%;
+    height: 85%;
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+textarea, .input-class {
+    font-family: "Lato", sans-serif;
+    outline: none;
+    border: none;
+    background-color: #171717;
+    font-size: 1.3rem;
+    color: #D9D9D9;
+}
+
+textarea {
+    resize: none;
+    width: 87%;
+    height: 40%;
+}
+
+.input-class {
+    width: 70%;
+    height: 2rem;
+}
+
+.input-class:focus, textarea:focus {
+    border-bottom: solid 2px #FFFF4D;
+}
+
+.btn {
+    width: 87%;
+    height: 3rem;
+    background-color: #FFFF4D;
+    color: #171717;
+    outline: none;
+    border: none;
+    font-size: 1.1rem;
+    font-family: "Lato", sans-serif;
+}
+
+.contact-info {
     display: flex;
     flex-direction: column;
 }
 
+.contact-details, .goodbye-div {
+    width: 100%;
+    height: 87%;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-top: 3rem;
+}
+
+.ylw-text {
+    color: #FFFF4D;
+    font-weight: 700;
+}
+
+.goodbye-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.goodbye-text {
+    font-weight: 700;
+    position: relative;
+}
+
+.goodbye-text::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 70%;
+    border: 2px solid #FFFF4D;
+    top: -50%;
+    left: 15%;
+}
+
+.goodbye-text::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 70%;
+    border: 2px solid #FFFF4D;
+    bottom: -60%;
+    left: 15%;
+}
+
 @media screen and (max-width: 950px) {
+    .h1-yellow, .skill-heading, .projects-heading, .contatct-title {
+        font-size: 1.9rem;
+    }
     .greeting {
         flex-direction: column;
     }
     .greeting-text {
-        padding-top: 25%;
-        padding-left: 23%;
+        padding-top: 30%;
+        padding-left: 25%;
     }
     .typing {
         padding-top: 0%;
+        padding-left: 12%;
+        overflow-x: hidden;
+    }
+    #about-me {
+        margin-top: 5rem;
+        height: 120vh;
+    }
+    .about-me__content {
+        height: 60%;
+        grid-template-rows: 20% 40%;
+    }
+    .am--content__img {
+        grid-row: 2 / 3;
     }
     .am--content__text {
-        padding-top: 1.5rem;
-        line-height: 1.7rem;
-        justify-content: flex-start;
+        grid-column: 6 / 13;
+        grid-row: 1 / 3;
+        line-height: 1.8rem;
+    }
+    .am--content__text {
+        padding-top: 1.2rem;
+        line-height: 1.5rem;
     }
     #about-me p {
         font-size: 1.2rem
     }
+    /* SKILLS SECTION */
+    .progress-bar__item {
+        line-height: 3rem;
+    }
+    .other-websites a {
+        line-height: 3.5rem;
+        padding-bottom: 0.5rem;
+        font-size: 1.4rem;
+    }
+    /* -- PROJECTS SECTION -- */
+    .project-title p::before {
+        width: 80px;
+        left: 4%;
+        top: 50%;
+    }
+    .project-title p::after {
+        width: 80px;
+        right: 4%;
+        top: 50%;
+    }
+    /* -- CONTACT ME SECTION -- */
+    .contact-text p {
+        padding-top: 2.5rem;
+        font-size: 1.2rem;
+    }
+    textarea, .input-class, .contact-details p, .goodbye-text {
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (max-width: 650px) {
+    .h1-yellow, .skill-heading, .projects-heading, .contatct-title {
+        font-size: 1.6rem;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
     .greeting {
         flex-direction: column;
     }
     .greeting-text {
-        padding-top: 40%;
+        padding-top: 45%;
+        padding-left: 26%;
     }
     .typing {
         padding-top: 0%;
+        padding-left: 15%;
+    }
+    .greeting-text, .typing {
+        font-size: 3.5rem;
     }
     .am--content__text {
         line-height: 1.3rem;
+        padding-top: 0rem;
+    }
+    #about-me {
+        height: 120vh;
+    }
+    .about-me__content, #my-skills {
+        height: 50%;
+    }
+    .am--content__img {
+        grid-column: 2 / 6;
+        grid-row: 2 / 4;
+    }
+    .am--content__text {
+        grid-column: 6 / 13;
+        grid-row: 1 / 4;
+        padding-left: 0.5rem;
     }
     #about-me p {
         font-size: 1rem
     }
+    .photo-fk {
+        width: 100%;
+        height: 100%;
+        -webkit-box-shadow: -30px -30px 0px 3px rgba(255, 255, 77, 1);
+        -moz-box-shadow: -30px -30px 0px 3px rgba(255, 255, 77, 1);
+        box-shadow: -30px -30px 0px 3px rgba(255, 255, 77, 1);
+    }
+    /* SKILLS SECTION */
+    #my-skills {
+        padding-top: 1.5rem;
+    }
+    .other-websites a {
+        line-height: 3rem;
+        font-size: 1.3rem;
+    }
+    /* -- PROJECTS SECTION -- */
+    .project-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        column-gap: 1%;
+        row-gap: 1%;
+        margin-bottom: 2rem;
+    }
+    .project1, .project2 {
+        grid-row: 1 / 2;
+    }
+    .project3, .project4 {
+        grid-row: 2 / 3;
+    }
+    .project5, .project6 {
+        grid-row: 3 / 4;
+    }
+    .project1, .project3, .project5 {
+        grid-column: 1 / 2;
+    }
+    .project2, .project4, .project6 {
+        grid-column: 2 / 3;
+    }
+    .project-title p {
+        font-size: 1.3rem;
+    }
+    /* -- CONTACT ME SECTION -- */
+    #contact {
+        margin-top: 4rem;
+    }
+    #contact-form, .contact-details {
+        padding-top: 0rem;
+    }
+    .contact-text p {
+        padding-top: 1.5rem;
+        font-size: 1.2rem;
+    }
+    textarea, .input-class, .contact-details p, .goodbye-text {
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
-    .greeting {
-        flex-direction: column;
+    .h1-yellow, .skill-heading, .projects-heading, .contatct-title {
+        font-size: 1.2rem;
+    }
+    h2 {
+        font-size: 1.1rem;
     }
     .greeting-text {
-        padding-top: 40%;
+        padding-top: 60%;
+        padding-left: 30%;
     }
     .typing {
-        padding-top: 0%;
+        padding-left: 19%;
+    }
+    .greeting-text, .typing {
+        font-size: 2.5rem;
+    }
+    #about-me {
+        height: auto;
+    }
+    .about-me__content {
+        grid-template-columns: 1fr;
+        grid-template-rows: 60% 40%;
+    }
+    .am--content__img {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+    .am--content__text {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        padding-left: 0px;
+        line-height: 1.6rem;
+    }
+    .photo-fk {
+        width: 80%;
+        height: auto;
+        position: relative;
+        left: 50px;
+        top: 5px;
+        -webkit-box-shadow: -20px -20px 0px 0px rgba(255, 255, 77, 1);
+        -moz-box-shadow: -20px -20px 0px 0px rgba(255, 255, 77, 1);
+        box-shadow: -20px 0px 0px 0px rgba(255, 255, 77, 1);
+    }
+    /* SKILLS SECTION */
+    #my-skills {
+        flex-direction: column;
+    }
+    .other-websites, .progress-bar {
+        display: block;
+        width: 100%;
+        /* height: 100%; */
+    }
+    .progress-bar__item {
+        line-height: 2.5rem;
+    }
+    .other-websites {
+        padding-top: 1rem;
+    }
+    .other-websites a {
+        line-height: 1.5rem;
+        padding-right: 0rem;
+        padding-bottom: 1rem;
+        font-size: 1rem;
+    }
+    /* -- Progress Bar -- */
+    .progress {
+        width: 90%;
+    }
+    /* -- PROJECTS SECTION -- */
+    .project-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        column-gap: 0%;
+        row-gap: 1%;
+        margin-bottom: 2rem;
+    }
+    .project1 {
+        grid-row: 1 / 2;
+    }
+    .project2 {
+        grid-row: 2 / 3;
+    }
+    .project3 {
+        grid-row: 3 / 4;
+    }
+    .project4 {
+        grid-row: 4 / 5;
+    }
+    .project5 {
+        grid-row: 5 / 6;
+    }
+    .project6 {
+        grid-row: 6 / 7;
+    }
+    .project1, .project3, .project5, .project2, .project4, .project6 {
+        grid-column: 1 / 2;
+    }
+    .project-title p {
+        font-size: 1.3rem;
+    }
+    .project-title p::before {
+        left: 13%;
+    }
+    .project-title p::after {
+        right: 13%;
+    }
+    /* -- CONTACT ME SECTION -- */
+    #contact {
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: "textgrid textgrid" "contactme contactme" "contactinfo contactinfo";
+    }
+    .contact-text {
+        margin-top: 3rem;
+    }
+    #contact-form, .contact-details {
+        padding-top: 0rem;
+    }
+    .contact-text p {
+        padding-top: 0.5rem;
+        padding-bottom: 2.5rem;
+    }
+    textarea, .input-class, .contact-details p, .goodbye-text {
+        font-size: 1.2rem;
+        padding-bottom: 1rem;
+    }
+    .btn {
+        width: 100%;
+    }
+    .goodbye-text::after {
+        bottom: -35%;
     }
 }
