@@ -85,7 +85,7 @@ p {
 
 #first-page {
     width: 100%;
-    height: calc(100vh - 70px);
+    height: 100vh;
 }
 
 .greeting {
@@ -133,7 +133,6 @@ p {
 
 #about-me {
     width: 100%;
-    height: 160vh;
 }
 
 .about-me__content {
@@ -173,6 +172,7 @@ p {
     width: 100%;
     height: 40%;
     display: flex;
+    margin-top: 6rem;
 }
 
 .other-websites, .progress-bar {
@@ -245,7 +245,6 @@ p {
 
 #projects {
     width: 100%;
-    height: auto;
     display: block;
 }
 
@@ -380,14 +379,10 @@ p {
     grid-area: contactinfo;
 }
 
-.contact-text p {
-    padding-top: 4rem;
-}
-
 #contact-form {
     width: 100%;
     height: 85%;
-    padding-top: 3rem;
+    /* padding-top: 3rem; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -443,7 +438,7 @@ textarea {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding-top: 3rem;
+    /* padding-top: 3rem; */
 }
 
 .ylw-text {
@@ -486,8 +481,14 @@ textarea {
     .h1-yellow, .skill-heading, .projects-heading, .contatct-title {
         font-size: 1.9rem;
     }
+
+    #first-page{
+        height: 100vh;
+    }
+
     .greeting {
         flex-direction: column;
+        min-height: 100vh;
     }
     .greeting-text {
         padding-top: 30%;
@@ -500,11 +501,11 @@ textarea {
     }
     #about-me {
         margin-top: 5rem;
-        height: 120vh;
     }
     .about-me__content {
         height: 60%;
         grid-template-rows: 20% 40%;
+    
     }
     .am--content__img {
         grid-row: 2 / 3;
@@ -543,11 +544,20 @@ textarea {
     }
     /* -- CONTACT ME SECTION -- */
     .contact-text p {
-        padding-top: 2.5rem;
         font-size: 1.2rem;
     }
     textarea, .input-class, .contact-details p, .goodbye-text {
         font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .greeting-text {
+        padding-top: 15%;
+        padding-left: 10%;
+    }
+    .typing {
+        padding-left: 10%;
     }
 }
 
@@ -562,15 +572,15 @@ textarea {
         flex-direction: column;
     }
     .greeting-text {
-        padding-top: 45%;
-        padding-left: 26%;
+        padding-top: 20%;
+        padding-left: 32%;
     }
     .typing {
         padding-top: 0%;
         padding-left: 15%;
     }
     .greeting-text, .typing {
-        font-size: 3.5rem;
+        font-size: 2.8rem;
     }
     .am--content__text {
         line-height: 1.3rem;
@@ -649,7 +659,6 @@ textarea {
         margin-top: 2rem;
     }
     .contact-text p {
-        padding-top: 1.5rem;
         font-size: 1.2rem;
     }
     textarea, .input-class, .contact-details p, .goodbye-text {
