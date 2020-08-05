@@ -268,16 +268,6 @@ p {
     height: 100%;
     display: flex;
     flex-direction: column;
-    position: relative;
-}
-
-.project-hidden__info {
-    display: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 130;
-    background-color: red;
 }
 
 .project1, .project2, .project3 {
@@ -303,11 +293,29 @@ p {
 .project-photo {
     width: 100%;
     height: 80%;
+    position: relative;
 }
 
 .project-photo>img {
     width: 100%;
     height: 100%;
+}
+
+.project-hidden__info {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 80;
+    background-color: rgba(0, 0, 0, 0.719);
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.project-photo:hover .project-hidden__info {
+    display: block;
 }
 
 .project-title {
@@ -543,7 +551,7 @@ textarea {
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 670px) {
     .h1-yellow, .skill-heading, .projects-heading, .contatct-title {
         font-size: 1.6rem;
     }
@@ -570,6 +578,7 @@ textarea {
     }
     #about-me {
         height: 120vh;
+        margin-top: 5rem;
     }
     .about-me__content, #my-skills {
         height: 50%;
@@ -596,12 +605,16 @@ textarea {
     /* SKILLS SECTION */
     #my-skills {
         padding-top: 1.5rem;
+        margin-top: 9rem;
     }
     .other-websites a {
         line-height: 3rem;
         font-size: 1.3rem;
     }
     /* -- PROJECTS SECTION -- */
+    #projects {
+        margin-top: 20em;
+    }
     .project-grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: repeat(3, 1fr);
@@ -633,6 +646,7 @@ textarea {
     }
     #contact-form, .contact-details {
         padding-top: 0rem;
+        margin-top: 2rem;
     }
     .contact-text p {
         padding-top: 1.5rem;
@@ -644,6 +658,10 @@ textarea {
 }
 
 @media screen and (max-width: 480px) {
+    .h1-yellow, #my-skills, #projects{
+        margin-top: 2rem ;
+    }
+
     .h1-yellow, .skill-heading, .projects-heading, .contatct-title {
         font-size: 1.2rem;
     }
@@ -763,7 +781,13 @@ textarea {
     }
     #contact-form, .contact-details {
         padding-top: 0rem;
+        margin-top: 0rem;
     }
+    .contact-details{
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
     .contact-text p {
         padding-top: 0.5rem;
         padding-bottom: 2.5rem;
@@ -774,6 +798,10 @@ textarea {
     }
     .btn {
         width: 100%;
+    }
+    .goodbye-div{
+        padding-top: 3rem;
+        margin-bottom: 3rem;
     }
     .goodbye-text::after {
         bottom: -35%;
