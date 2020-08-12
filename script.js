@@ -80,3 +80,41 @@ window.addEventListener('scroll', () => {
         navBar.classList.remove("navbar-scroll");
     };
 })
+
+
+// const projectItem = document.querySelector(".project1");
+// const hiddenStyleForItem = document.querySelector(".project-hidden__info");
+
+// projectItem.onmouseover = function showHiddenDiv() {
+//     hiddenStyleForItem.style.display = "block";
+// };
+
+
+
+// const projectItem = document.querySelector(".project1");
+// const hiddenStyleForItem = document.querySelector(".project-hidden__info");
+
+// projectItem.addEventListener('mouseover', mouseOver);
+// projectItem.addEventListener('mouseout', mouseOut);
+
+// function mouseOver() {
+//     projectItem.style.display = "block";
+// };
+// function mouseOut(){
+//     projectItem.style.display = "none";
+// };
+
+
+
+// document.querySelector('project1').onmouseover = function(){
+//     document.querySelector('project-hidden__info').style.display = 'block';
+// };
+// document.querySelector('project1').onmouseout = function(){
+//     document.querySelector('project-hidden__info').style.display = 'none';
+// };
+
+// if (document.querySelector('project1').onmouseover == true){
+//     document.querySelector('project-hidden__info').style.display = 'block';
+// } else {
+//     document.querySelector('project-hidden__info').style.display = 'none';
+// }
