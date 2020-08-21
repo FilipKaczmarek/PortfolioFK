@@ -477,6 +477,14 @@ textarea {
     left: 15%;
 }
 
+.scroll-effect1,
+.scroll-effect2,
+.scroll-effect3,
+.scroll-effect4{
+    left: 350px;
+    position: relative;
+}
+
 @media screen and (max-width: 950px) {
     .h1-yellow, .skill-heading, .projects-heading, .contatct-title {
         font-size: 1.9rem;

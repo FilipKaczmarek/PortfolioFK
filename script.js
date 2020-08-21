@@ -94,3 +94,10 @@ window.addEventListener('scroll', () => {
 // } else {
 //     document.querySelector('project-hidden__info').style.display = 'none';
 // }
+
+$(document).on('scroll', function(){
+    $('.scroll-effect1').css('left', Math.max(350 - 0.45 * window.scrollY, 0) + 'px');
+    $('.scroll-effect2').css('left', Math.max(350 - 0.32 * window.scrollY, 0) + 'px');
+    $('.scroll-effect3').css('left', Math.max(350 - 0.17 * window.scrollY, 0) + 'px');
+    $('.scroll-effect4').css('left', Math.max(350 - 0.13 * window.scrollY, 0) + 'px');
+})
